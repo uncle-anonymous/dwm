@@ -1726,8 +1726,8 @@ void run(void) {
 }
 
 void runAutostart(void) {
-  /* system("cd ~/scripts; ./autostart_blocking.sh"); */
-  system("cd ~/scripts; ./autostart.sh &");
+  // system("cd ~/scripts; ./autostart_blocking.sh");
+  system("cd ~/.config/scripts; ./autostart.sh &");
 }
 
 void scan(void) {
