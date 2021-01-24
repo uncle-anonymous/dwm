@@ -328,6 +328,7 @@ static int xerrordummy(Display *dpy, XErrorEvent *ee);
 static int xerrorstart(Display *dpy, XErrorEvent *ee);
 static void xinitvisual();
 static void zoom(const Arg *arg);
+static int issinglewin(const Arg *arg);
 
 /* variables */
 static Systray *systray = NULL;
@@ -362,8 +363,6 @@ static Cur *cursor[CurLast];
 static Clr **scheme;
 static Display *dpy;
 static Drw *drw;
-static Monitor *mons, *selmon;
-static Window root, wmcheckwin;
 
 static int useargb = 0;
 static Visual *visual;
@@ -512,6 +511,7 @@ void arrange(Monitor *m) {
 
 void arrangemon(Monitor *m) {
   strncpy(m->ltsymbol, m->lt[m->sellt]->symbol, sizeof m->ltsymbol);
+  m->ltsymbol[sizeof(m->ltsymbol) - 1] = '\0';
   if (m->lt[m->sellt]->arrange)
     m->lt[m->sellt]->arrange(m);
 }
@@ -1888,6 +1888,7 @@ void setlayout(const Arg *arg) {
             (Layout *)arg->v;
   strncpy(selmon->ltsymbol, selmon->lt[selmon->sellt]->symbol,
           sizeof selmon->ltsymbol);
+  selmon->ltsymbol[sizeof(selmon->ltsymbol) - 1] = '\0';
   if (selmon->sel)
     arrange(selmon);
   else
