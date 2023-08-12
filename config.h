@@ -17,8 +17,8 @@ static const int smartgaps          = 1;        /* 1 means no outer gap when the
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
 static const Bool viewontag         = True;     /* Switch view on tag switch */
-static const char *fonts[]          = { "SauceCodePro Nerd Font Mono:size=16" };
-static const char dmenufont[]       = "SauceCodePro Nerd Font Mono:size=16";
+static const char *fonts[]          = { "JetBrains Mono:size=14" };
+static const char dmenufont[]       = "JetBrains Mono:size=14";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -77,13 +77,13 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
-#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+#define SHCMD(cmd) { .v = (const char*[]){ "/bin/zsh", "-c", cmd, NULL } }
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 //static const char *dmenucmd[] = { "rofi", "-show", "run", NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "/home/debianlin/.config/scripts/term.sh", NULL };
 static const char *browsercmd[]  = { "/home/debianlin/.config/scripts/browser.sh", NULL };
 
 static const char *upvol[]   = { "/home/debianlin/.config/scripts/vol-up.sh",  NULL };
@@ -93,7 +93,7 @@ static const char *mutevol[] = { "/home/debianlin/.config/scripts/vol-toggle.sh"
 static const char *wpcmd[]  = { "/home/debianlin/.config/scripts/wp-change.sh", NULL };
 static const char *sktogglecmd[]  = { "/home/debianlin/.config/scripts/sck-tog.sh", NULL };
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24", NULL };
+static const char *scratchpadcmd[] = { "alacritty", "-t", scratchpadname, "-g", "80x24", NULL };
 
 static const char *setcolemakcmd[]  = { "/home/debianlin/.config/scripts/setxmodmap-colemak.sh", NULL };
 static const char *setqwertycmd[]  = { "/home/debianlin/.config/scripts/setxmodmap-qwerty.sh", NULL };
