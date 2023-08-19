@@ -90,6 +90,7 @@ void drw_resize(Drw *drw, unsigned int w, unsigned int h) {
 void drw_free(Drw *drw) {
   XFreePixmap(drw->dpy, drw->drawable);
   XFreeGC(drw->dpy, drw->gc);
+  drw_fontset_free(drw->fonts);
   free(drw);
 }
 
@@ -134,12 +135,6 @@ static Fnt *xfont_create(Drw *drw, const char *fontname,
    * https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=916349
    * and lots more all over the internet.
    */
-  FcBool iscol;
-  if (FcPatternGetBool(xfont->pattern, FC_COLOR, 0, &iscol) == FcResultMatch &&
-      iscol) {
-    XftFontClose(drw->dpy, xfont);
-    return NULL;
-  }
 
   font = ecalloc(1, sizeof(Fnt));
   font->xfont = xfont;
@@ -334,7 +329,6 @@ int drw_text(Drw *drw, int x, int y, unsigned int w, unsigned int h,
       fcpattern = FcPatternDuplicate(drw->fonts->pattern);
       FcPatternAddCharSet(fcpattern, FC_CHARSET, fccharset);
       FcPatternAddBool(fcpattern, FC_SCALABLE, FcTrue);
-      FcPatternAddBool(fcpattern, FC_COLOR, FcFalse);
 
       FcConfigSubstitute(NULL, fcpattern, FcMatchPattern);
       FcDefaultSubstitute(fcpattern);
