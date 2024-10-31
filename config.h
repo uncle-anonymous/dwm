@@ -16,7 +16,7 @@ static const unsigned int gappov    = 10;       /* vert outer gap between window
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const Bool viewontag         = True;     /* Switch view on tag switch */
-static const char *fonts[]          = { "JetBrains Mono:size=9" };
+static const char *fonts[]          = { "JetBrains Mono:size=9", "KaiTi_GB2312:size=9" };
 static const char dmenufont[]       = "JetBrains Mono:size=9";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -83,22 +83,22 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 //static const char *dmenucmd[] = { "rofi", "-show", "run", NULL };
-static const char *termcmd[]  = { "/home/debianlin/.config/scripts/term.sh", NULL };
-static const char *browsercmd[]  = { "/home/debianlin/.config/scripts/browser.sh", NULL };
+static const char *termcmd[]  = { "/home/svenlin/.config/scripts/term.sh", NULL };
+static const char *browsercmd[]  = { "/home/svenlin/.config/scripts/browser.sh", NULL };
 
-static const char *upvol[]   = { "/home/debianlin/.config/scripts/vol-up.sh",  NULL };
-static const char *downvol[] = { "/home/debianlin/.config/scripts/vol-down.sh",  NULL };
-static const char *mutevol[] = { "/home/debianlin/.config/scripts/vol-toggle.sh",  NULL };
+static const char *upvol[]   = { "/home/svenlin/.config/scripts/vol-up.sh",  NULL };
+static const char *downvol[] = { "/home/svenlin/.config/scripts/vol-down.sh",  NULL };
+static const char *mutevol[] = { "/home/svenlin/.config/scripts/vol-toggle.sh",  NULL };
 
-static const char *wpcmd[]  = { "/home/debianlin/.config/scripts/wp-change.sh", NULL };
-static const char *sktogglecmd[]  = { "/home/debianlin/.config/scripts/sck-tog.sh", NULL };
+static const char *wpcmd[]  = { "/home/svenlin/.config/scripts/wp-change.sh", NULL };
+static const char *sktogglecmd[]  = { "/home/svenlin/.config/scripts/sck-tog.sh", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "alacritty", "-t", scratchpadname, "-g", "80x24", NULL };
 
-static const char *setcolemakcmd[]  = { "/home/debianlin/.config/scripts/setxmodmap-colemak.sh", NULL };
-static const char *setqwertycmd[]  = { "/home/debianlin/.config/scripts/setxmodmap-qwerty.sh", NULL };
+static const char *setcolemakcmd[]  = { "/home/svenlin/.config/scripts/setxmodmap-colemak.sh", NULL };
+static const char *setqwertycmd[]  = { "/home/svenlin/.config/scripts/setxmodmap-qwerty.sh", NULL };
 
-static const char *suspendcmd[]  = { "/home/debianlin/.config/scripts/suspend.sh", NULL };
+static const char *suspendcmd[]  = { "/home/svenlin/.config/scripts/suspend.sh", NULL };
 
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 
